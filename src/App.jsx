@@ -75,7 +75,8 @@ const CURRICULUM_DATA = {
         id: "p0_stl",
         title: "STL, Stack & Queue (30 Questions)",
         resources: [
-           { title: "Striver Sheet", link: "https://takeuforward.org/dsa/strivers-a2z-sheet-learn-dsa-a-to-z" }
+           { title: "Striver Sheet", link: "https://takeuforward.org/dsa/strivers-a2z-sheet-learn-dsa-a-to-z" },
+           { title: "Policy-Based-Data-Structure", link: "https://www.geeksforgeeks.org/cpp/policy-based-data-structures-g/" }
         ],
         questions: [
           
@@ -275,9 +276,34 @@ const CURRICULUM_DATA = {
        {
         id: "p0_hashing",
         title: "Hashing (Striver's Sheet)",
+        resources: [
+           { title: "Striver Sheet", link: "https://takeuforward.org/dsa/strivers-a2z-sheet-learn-dsa-a-to-z" }
+        ],
         questions: [
-          { id: "st_hash_1", title: "2Sum", link: "https://leetcode.com/problems/two-sum/" },
-          { id: "st_hash_2", title: "4Sum", link: "https://leetcode.com/problems/4sum/" }
+          { id: "st_hashing", title: "Hashing", link: "https://takeuforward.org/dsa/strivers-a2z-sheet-learn-dsa-a-to-z" }
+          
+        ]
+      },
+      {
+        id: "p0prefixsuffix",
+        title: "Prefix-Suffix",
+        resources: [
+           { title: "prefixsuffix", link: "https://codeforces.com/blog/entry/140458" }
+        ],
+        questions: [
+          { id: "prefixsuffix", title: "prefixsuffix", link: "https://codeforces.com/blog/entry/140458" }
+          
+        ]
+      },
+      {
+        id: "p0diffrencearray",
+        title: "Diffrence-array",
+        resources: [
+           { title: "Diffrence-array", link: "https://codeforces.com/blog/entry/78762" }
+        ],
+        questions: [
+          { id: "Diffrence-array", title: "Diffrence-array", link: "https://codeforces.com/blog/entry/78762" }
+          
         ]
       },
     ]
@@ -290,113 +316,145 @@ const CURRICULUM_DATA = {
         id: "p1_sorting",
         title: "Sorting (7 Questions)",
         resources: [
+           { title: "Striver Sheet", link: "https://takeuforward.org/dsa/strivers-a2z-sheet-learn-dsa-a-to-z" },
            { title: "GFG All Sorting Algos", link: "https://www.geeksforgeeks.org/sorting-algorithms/" },
-           { title: "Meet in the Middle (USACO)", link: "https://usaco.guide/gold/meet-in-the-middle" }
+           { title: "Meet in the Middle (USACO)", link: "https://usaco.guide/gold/meet-in-the-middle" },
+           { title: "Meet in the Middle (YouTube)", link: "https://www.youtube.com/watch?v=naz_9njI0I0" }
+
         ],
         questions: [
-          { id: "st_sort_1", title: "Count Inversions", link: "https://www.geeksforgeeks.org/inversion-count-in-array-using-merge-sort/" },
-          { id: "st_sort_2", title: "Reverse Pairs", link: "https://leetcode.com/problems/reverse-pairs/" },
-          { id: "st_sort_3", title: "Sort Colors (0s, 1s, 2s)", link: "https://leetcode.com/problems/sort-colors/" },
-          { id: "st_sort_4", title: "Merge Sorted Array", link: "https://leetcode.com/problems/merge-sorted-array/" },
-          { id: "st_sort_5", title: "Maximum Gap", link: "https://leetcode.com/problems/maximum-gap/" },
-          { id: "st_sort_6", title: "Kth Largest Element", link: "https://leetcode.com/problems/kth-largest-element-in-an-array/" },
-          { id: "st_sort_7", title: "Top K Frequent Elements", link: "https://leetcode.com/problems/top-k-frequent-elements/" }
+          { id: "st_sort_1", title: "Sorting", link: "https://takeuforward.org/dsa/strivers-a2z-sheet-learn-dsa-a-to-z" }
+          
         ]
       },
       {
         id: "p1_bs",
         title: "Binary Search (32 Questions)",
+        resources: [
+           { title: "Striver Sheet", link: "https://takeuforward.org/dsa/strivers-a2z-sheet-learn-dsa-a-to-z" },
+           { title: "Ternary Search", link: "https://cp-algorithms.com/num_methods/ternary_search.html" }
+        ],
         questions: [
-          { id: "st_bs_1", title: "Binary Search (Basic)", link: "https://leetcode.com/problems/binary-search/" },
-          { id: "st_bs_2", title: "Lower Bound / Upper Bound", link: "https://www.geeksforgeeks.org/lower-bound-in-cpp/" },
-          { id: "st_bs_3", title: "Search Insert Position", link: "https://leetcode.com/problems/search-insert-position/" },
-          { id: "st_bs_4", title: "Floor and Ceil in Sorted Array", link: "https://www.codingninjas.com/studio/problems/ceiling-in-a-sorted-array_1825401" },
-          { id: "st_bs_5", title: "First and Last Occurrence", link: "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/" },
-          { id: "st_bs_6", title: "Count Occurrences", link: "https://www.geeksforgeeks.org/count-number-of-occurrences-in-a-sorted-array/" },
-          { id: "st_bs_7", title: "Search in Rotated Sorted Array I", link: "https://leetcode.com/problems/search-in-rotated-sorted-array/" },
-          { id: "st_bs_8", title: "Search in Rotated Sorted Array II", link: "https://leetcode.com/problems/search-in-rotated-sorted-array-ii/" },
-          { id: "st_bs_9", title: "Find Minimum in Rotated Sorted Array", link: "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/" },
-          { id: "st_bs_10", title: "Single Element in Sorted Array", link: "https://leetcode.com/problems/single-element-in-a-sorted-array/" },
-          { id: "st_bs_11", title: "Peak Element", link: "https://leetcode.com/problems/find-peak-element/" },
-          { id: "st_bs_12", title: "Square Root of an Integer", link: "https://leetcode.com/problems/sqrtx/" },
-          { id: "st_bs_13", title: "Nth Root of M", link: "https://www.geeksforgeeks.org/n-th-root-number/" },
-          { id: "st_bs_14", title: "Koko Eating Bananas", link: "https://leetcode.com/problems/koko-eating-bananas/" },
-          { id: "st_bs_15", title: "Minimum days to make M bouquets", link: "https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/" },
-          { id: "st_bs_16", title: "Smallest Divisor given a Threshold", link: "https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/" },
-          { id: "st_bs_17", title: "Capacity to Ship Packages", link: "https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/" },
-          { id: "st_bs_18", title: "Kth Missing Positive Number", link: "https://leetcode.com/problems/kth-missing-positive-number/" },
-          { id: "st_bs_19", title: "Aggressive Cows", link: "https://www.spoj.com/problems/AGGRCOW/" },
-          { id: "st_bs_20", title: "Book Allocation Problem", link: "https://www.interviewbit.com/problems/allocate-books/" },
-          { id: "st_bs_21", title: "Split Array Largest Sum", link: "https://leetcode.com/problems/split-array-largest-sum/" },
-          { id: "st_bs_22", title: "Painter's Partition", link: "https://www.interviewbit.com/problems/painters-partition-problem/" },
-          { id: "st_bs_23", title: "Minimize Max Distance to Gas Station", link: "https://www.geeksforgeeks.org/minimize-max-distance-to-gas-station/" },
-          { id: "st_bs_24", title: "Median of Two Sorted Arrays", link: "https://leetcode.com/problems/median-of-two-sorted-arrays/" },
-          { id: "st_bs_25", title: "Kth Element of Two Sorted Arrays", link: "https://practice.geeksforgeeks.org/problems/k-th-element-of-two-sorted-array1317/1" },
-          { id: "st_bs_26", title: "Row with Max 1s", link: "https://practice.geeksforgeeks.org/problems/row-with-max-1s0023/1" },
-          { id: "st_bs_27", title: "Search in 2D Matrix", link: "https://leetcode.com/problems/search-a-2d-matrix/" },
-          { id: "st_bs_28", title: "Search in 2D Matrix II", link: "https://leetcode.com/problems/search-a-2d-matrix-ii/" },
-          { id: "st_bs_29", title: "Find Peak Grid Element", link: "https://leetcode.com/problems/find-a-peak-element-ii/" },
-          { id: "st_bs_30", title: "Matrix Median", link: "https://www.interviewbit.com/problems/matrix-median/" },
-          { id: "st_bs_31", title: "Kth Smallest Number in Multiplication Table", link: "https://leetcode.com/problems/kth-smallest-number-in-multiplication-table/" },
-          { id: "st_bs_32", title: "Median of Row Wise Sorted Matrix", link: "https://practice.geeksforgeeks.org/problems/median-in-a-row-wise-sorted-matrix1527/1" }
+          { id: "st_bs_1", title: "Striver Sheet", link: "https://takeuforward.org/dsa/strivers-a2z-sheet-learn-dsa-a-to-z" },
+          { id: "st_bs_2", title: "Codeforces edu(40-50 questions)", link: "https://codeforces.com/edu/courses" },
+          { id: "cf_bs_1", title: "Vanya and Lanterns", link: "https://codeforces.com/problemset/problem/492/B" },
+  { id: "cf_bs_2", title: "Interesting drink", link: "https://codeforces.com/problemset/problem/706/B" },
+  { id: "cf_bs_3", title: "Worms", link: "https://codeforces.com/problemset/problem/474/B" },
+  { id: "cf_bs_4", title: "K-th Not Divisible by n", link: "https://codeforces.com/problemset/problem/1352/C" },
+  { id: "cf_bs_5", title: "Magic Powder - 1", link: "https://codeforces.com/problemset/problem/670/D1" },
+  { id: "cf_bs_6", title: "Hamburgers", link: "https://codeforces.com/problemset/problem/371/C" },
+  { id: "cf_bs_7", title: "Burning Midnight Oil", link: "https://codeforces.com/problemset/problem/165/B" },
+  { id: "cf_bs_8", title: "Pipeline", link: "https://codeforces.com/problemset/problem/287/B" },
+  { id: "cf_bs_9", title: "Poisoned Dagger", link: "https://codeforces.com/problemset/problem/1613/C" },
+  { id: "cf_bs_10", title: "Eating Queries", link: "https://codeforces.com/problemset/problem/1676/E" },
+  { id: "cf_bs_11", title: "Maximum Median", link: "https://codeforces.com/problemset/problem/1201/C" },
+  { id: "cf_bs_12", title: "Computer Game", link: "https://codeforces.com/problemset/problem/1183/C" },
+  { id: "cf_bs_13", title: "Chat Ban", link: "https://codeforces.com/problemset/problem/1612/C" },
+  { id: "cf_bs_14", title: "Keshi Is Throwing a Party", link: "https://codeforces.com/problemset/problem/1610/C" },
+  { id: "cf_bs_15", title: "Counting Kangaroos is Fun", link: "https://codeforces.com/problemset/problem/372/A" },
+  { id: "cf_bs_16", title: "Mike and Chocolate Thieves", link: "https://codeforces.com/problemset/problem/689/B" },
+  { id: "cf_bs_17", title: "Sagheer and Nubian Market", link: "https://codeforces.com/problemset/problem/812/C" },
+  { id: "cf_bs_18", title: "Save the Nature", link: "https://codeforces.com/problemset/problem/1223/C" },
+  { id: "cf_bs_19", title: "Get an Even String", link: "https://codeforces.com/problemset/problem/1660/C" },
+  { id: "cf_bs_20", title: "Increasing Subsequence", link: "https://codeforces.com/problemset/problem/1157/C1" },
+  { id: "cf_bs_21", title: "Fixed Point Guessing", link: "https://codeforces.com/problemset/problem/1679/B" },
+  { id: "cf_bs_22", title: "Guess the Number", link: "https://codeforces.com/problemset/problem/416/A" },
+  { id: "cf_bs_23", title: "Sport Mafia", link: "https://codeforces.com/problemset/problem/1195/B" },
+  { id: "cf_bs_24", title: "Perfect Team", link: "https://codeforces.com/problemset/problem/1221/C" },
+  { id: "cf_bs_25", title: "New Year's Problem", link: "https://codeforces.com/problemset/problem/1619/C" },
+  { id: "cf_bs_26", title: "Books Exchange", link: "https://codeforces.com/problemset/problem/1249/B1" },
+  { id: "cf_bs_27", title: "Letters", link: "https://codeforces.com/problemset/problem/978/C" },
+  { id: "cf_bs_28", title: "Minimum Notation", link: "https://codeforces.com/problemset/problem/1730/C" },
+  { id: "cf_bs_29", title: "Scuza", link: "https://codeforces.com/problemset/problem/1742/E" },
+  { id: "cf_bs_30", title: "Jumping on Tiles", link: "https://codeforces.com/problemset/problem/1729/C" }
         ]
       },
       {
         id: "p1_bit",
         title: "Bit Manipulation (18 Questions)",
         resources: [
-            { title: "Galen Colin Stream 1", link: "https://www.youtube.com/watch?v=xXKL9YBWgCY" },
-            { title: "Galen Colin Stream 2", link: "https://www.youtube.com/watch?v=5rtVTYAc3l0" }
+           { title: "Striver Sheet", link: "https://takeuforward.org/dsa/strivers-a2z-sheet-learn-dsa-a-to-z" },
+           { title: "Galen Colin Stream 1", link: "https://www.youtube.com/watch?v=1um-WUyjess&list=PLDjGkpToBsYCaRoQ-_S5MRxYMuKgHD62w&index=9" },
+            { title: "Galen Colin Stream 2", link: "https://www.youtube.com/watch?v=UPVoGMZWQMU&list=PLDjGkpToBsYCaRoQ-_S5MRxYMuKgHD62w&index=10" }
         ],
         questions: [
-            { id: "st_bit_1", title: "Check if ith bit is set", link: "https://practice.geeksforgeeks.org/problems/check-whether-k-th-bit-is-set-or-not-1587115620/1" },
-            { id: "st_bit_2", title: "Turn off the rightmost set bit", link: "https://www.geeksforgeeks.org/turn-off-the-rightmost-set-bit/" },
-            { id: "st_bit_3", title: "Check if a number is power of 2", link: "https://leetcode.com/problems/power-of-two/" },
-            { id: "st_bit_4", title: "Count set bits", link: "https://leetcode.com/problems/number-of-1-bits/" },
-            { id: "st_bit_5", title: "Count total set bits 1 to N", link: "https://practice.geeksforgeeks.org/problems/count-total-set-bits-1587115620/1" },
-            { id: "st_bit_6", title: "Set the rightmost unset bit", link: "https://www.geeksforgeeks.org/set-rightmost-unset-bit/" },
-            { id: "st_bit_7", title: "Swap two numbers", link: "https://www.geeksforgeeks.org/swap-two-numbers-without-using-temporary-variable/" },
-            { id: "st_bit_8", title: "Divide integers without multiplication", link: "https://leetcode.com/problems/divide-two-integers/" },
-            { id: "st_bit_9", title: "Minimum Bit Flips to Convert Number", link: "https://leetcode.com/problems/minimum-bit-flips-to-convert-number/" },
-            { id: "st_bit_10", title: "Power Set", link: "https://leetcode.com/problems/subsets/" },
-            { id: "st_bit_11", title: "Single Number I", link: "https://leetcode.com/problems/single-number/" },
-            { id: "st_bit_12", title: "Single Number II", link: "https://leetcode.com/problems/single-number-ii/" },
-            { id: "st_bit_13", title: "Single Number III", link: "https://leetcode.com/problems/single-number-iii/" },
-            { id: "st_bit_14", title: "XOR of numbers in a range L to R", link: "https://www.geeksforgeeks.org/find-xor-of-numbers-from-the-range-l-r/" },
-            { id: "st_bit_15", title: "Two numbers with odd occurrences", link: "https://practice.geeksforgeeks.org/problems/two-numbers-with-odd-occurrences5846/1" },
-            { id: "st_bit_16", title: "Maximum XOR of Two Numbers", link: "https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/" },
-            { id: "st_bit_17", title: "Maximum XOR With an Element From Array", link: "https://leetcode.com/problems/maximum-xor-with-an-element-from-array/" },
-            { id: "st_bit_18", title: "Count primes (Sieve)", link: "https://leetcode.com/problems/count-primes/" }
+            { id: "st_bit_1", title: "Striver Sheet", link: "https://takeuforward.org/dsa/strivers-a2z-sheet-learn-dsa-a-to-z" },
         ]
       },
       {
         id: "p1_nt",
         title: "Number Theory",
         resources: [
-            { title: "CodeNCode Channel", link: "https://www.youtube.com/c/CodeNCode" }
+            { title: "CodeNCode Channel", link: "https://www.youtube.com/playlist?app=desktop&list=PL5DyztRVgtRWblnyEHtajWijQffrfwLz6" }
         ],
         questions: [
-            { id: "cf_nt_1", title: "T-primes", link: "https://codeforces.com/problemset/problem/230/B" },
-            { id: "cf_nt_2", title: "Design Tutorial: Learn from Math", link: "https://codeforces.com/problemset/problem/472/A" },
-            { id: "cf_nt_3", title: "Sherlock and his girlfriend", link: "https://codeforces.com/problemset/problem/776/B" }
-        ]
+            
+  { id: "cf_nt_1", title: "T-primes", link: "https://codeforces.com/problemset/problem/230/B" },
+  { id: "cf_nt_2", title: "Design Tutorial: Learn from Math", link: "https://codeforces.com/problemset/problem/472/A" },
+  { id: "cf_nt_3", title: "Sherlock and his girlfriend", link: "https://codeforces.com/problemset/problem/776/B" },
+  { id: "cf_nt_4", title: "Almost Prime", link: "https://codeforces.com/problemset/problem/26/A" },
+  { id: "cf_nt_5", title: "Bachgold Problem", link: "https://codeforces.com/problemset/problem/749/A" },
+  { id: "cf_nt_6", title: "Arpa’s hard exam and Mehrdad’s naive cheat", link: "https://codeforces.com/problemset/problem/742/A" },
+  { id: "cf_nt_7", title: "EhAb AnD gCd", link: "https://codeforces.com/problemset/problem/1325/A" },
+  { id: "cf_nt_8", title: "k-th divisor", link: "https://codeforces.com/problemset/problem/762/A" },
+  { id: "cf_nt_9", title: "Product of Three Numbers", link: "https://codeforces.com/problemset/problem/1294/C" },
+  { id: "cf_nt_10", title: "Buying Shovels", link: "https://codeforces.com/problemset/problem/1360/D" },
+  { id: "cf_nt_11", title: "Divisibility Problem", link: "https://codeforces.com/problemset/problem/1328/A" },
+  { id: "cf_nt_12", title: "Noldbach problem", link: "https://codeforces.com/problemset/problem/17/A" },
+  { id: "cf_nt_13", title: "Maximum GCD", link: "https://codeforces.com/problemset/problem/1370/A" },
+  { id: "cf_nt_14", title: "Orac and Factors", link: "https://codeforces.com/problemset/problem/1350/A" },
+  { id: "cf_nt_15", title: "Fadi and LCM", link: "https://codeforces.com/problemset/problem/1285/C" },
+  { id: "cf_nt_16", title: "Common Divisors", link: "https://codeforces.com/problemset/problem/1203/C" },
+  { id: "cf_nt_17", title: "Ebony and Ivory", link: "https://codeforces.com/problemset/problem/633/A" },
+  { id: "cf_nt_18", title: "Omkar and Last Class of Math", link: "https://codeforces.com/problemset/problem/1372/B" },
+  { id: "cf_nt_19", title: "Different Divisors", link: "https://codeforces.com/problemset/problem/1474/B" },
+  { id: "cf_nt_20", title: "Row GCD", link: "https://codeforces.com/problemset/problem/1459/C" },
+  { id: "cf_nt_21", title: "Modified GCD", link: "https://codeforces.com/problemset/problem/75/C" },
+  { id: "cf_nt_22", title: "Taxes", link: "https://codeforces.com/problemset/problem/735/D" },
+  { id: "cf_nt_23", title: "Divide by three, multiply by two", link: "https://codeforces.com/problemset/problem/977/D" },
+  { id: "cf_nt_24", title: "Composite Coloring", link: "https://codeforces.com/problemset/problem/1332/B" },
+  { id: "cf_nt_25", title: "Prime Square", link: "https://codeforces.com/problemset/problem/1436/B"}
+]
+        
       },
       {
         id: "p1_win",
         title: "2 Pointers & Sliding Window (12 Questions)",
+        resources: [
+           { title: "Striver Sheet", link: "https://takeuforward.org/dsa/strivers-a2z-sheet-learn-dsa-a-to-z" }
+        ],
         questions: [
-            { id: "st_win_1", title: "Longest Substring Without Repeating Characters", link: "https://leetcode.com/problems/longest-substring-without-repeating-characters/" },
-            { id: "st_win_2", title: "Max Consecutive Ones III", link: "https://leetcode.com/problems/max-consecutive-ones-iii/" },
-            { id: "st_win_3", title: "Fruit Into Baskets", link: "https://leetcode.com/problems/fruit-into-baskets/" },
-            { id: "st_win_4", title: "Longest Repeating Character Replacement", link: "https://leetcode.com/problems/longest-repeating-character-replacement/" },
-            { id: "st_win_5", title: "Binary Subarrays With Sum", link: "https://leetcode.com/problems/binary-subarrays-with-sum/" },
-            { id: "st_win_6", title: "Count Number of Nice Subarrays", link: "https://leetcode.com/problems/count-number-of-nice-subarrays/" },
-            { id: "st_win_7", title: "Number of Substrings Containing All Three Characters", link: "https://leetcode.com/problems/number-of-substrings-containing-all-three-characters/" },
-            { id: "st_win_8", title: "Max Consecutive Ones", link: "https://leetcode.com/problems/max-consecutive-ones/" },
-            { id: "st_win_9", title: "Trapping Rainwater", link: "https://leetcode.com/problems/trapping-rain-water/" },
-            { id: "st_win_10", title: "3 Sum", link: "https://leetcode.com/problems/3sum/" },
-            { id: "st_win_11", title: "Remove Duplicates from Sorted Array", link: "https://leetcode.com/problems/remove-duplicates-from-sorted-array/" },
-            { id: "st_win_12", title: "Minimum Window Substring", link: "https://leetcode.com/problems/minimum-window-substring/" }
+            { id: "st_win_1", title: "Sliding window and 2 pointer", link: "https://takeuforward.org/dsa/strivers-a2z-sheet-learn-dsa-a-to-z" },
+            { id: "cf_tp_1", title: "Books", link: "https://codeforces.com/problemset/problem/279/B" },
+  { id: "cf_tp_2", title: "Kefa and Company", link: "https://codeforces.com/problemset/problem/580/B" },
+  { id: "cf_tp_3", title: "Fence", link: "https://codeforces.com/problemset/problem/363/B" },
+  { id: "cf_tp_4", title: "Alice, Bob and Chocolate", link: "https://codeforces.com/problemset/problem/6/C" },
+  { id: "cf_tp_5", title: "Sereja and Dima", link: "https://codeforces.com/problemset/problem/381/A" },
+  { id: "cf_tp_6", title: "Given Length and Sum of Digits", link: "https://codeforces.com/problemset/problem/489/C" },
+  { id: "cf_tp_7", title: "Kuriyama Mirai's Stones", link: "https://codeforces.com/problemset/problem/433/B" },
+  { id: "cf_tp_8", title: "Vasya and String", link: "https://codeforces.com/problemset/problem/676/C" },
+  { id: "cf_tp_9", title: "Ternary String", link: "https://codeforces.com/problemset/problem/1354/B" },
+  { id: "cf_tp_10", title: "Three Parts of the Array", link: "https://codeforces.com/problemset/problem/1006/C" },
+  { id: "cf_tp_11", title: "Karen and Coffee", link: "https://codeforces.com/problemset/problem/816/B" },
+  { id: "cf_tp_12", title: "Points on Line", link: "https://codeforces.com/problemset/problem/251/A" },
+  { id: "cf_tp_13", title: "Balanced Team", link: "https://codeforces.com/problemset/problem/1133/C" },
+  { id: "cf_tp_14", title: "BerSU Ball", link: "https://codeforces.com/problemset/problem/489/B" },
+  { id: "cf_tp_15", title: "Longest k-Good Segment", link: "https://codeforces.com/problemset/problem/616/D" },
+  { id: "cf_tp_16", title: "Cellular Network", link: "https://codeforces.com/problemset/problem/702/C" },
+  { id: "cf_tp_17", title: "Number of Pairs", link: "https://codeforces.com/problemset/problem/1538/C" },
+  { id: "cf_tp_18", title: "Favorite Sequence", link: "https://codeforces.com/problemset/problem/1462/A" },
+  { id: "cf_tp_19", title: "Pair of Topics", link: "https://codeforces.com/problemset/problem/1324/D" },
+  { id: "cf_tp_20", title: "Prepend and Append", link: "https://codeforces.com/problemset/problem/1791/C" },
+  { id: "cf_tp_21", title: "Letters", link: "https://codeforces.com/problemset/problem/978/C" },
+  { id: "cf_tp_22", title: "Boats Competition", link: "https://codeforces.com/problemset/problem/1399/C" },
+  { id: "cf_tp_23", title: "Sum of Cubes", link: "https://codeforces.com/problemset/problem/1490/C" },
+  { id: "cf_tp_24", title: "Double-ended Strings", link: "https://codeforces.com/problemset/problem/1506/C" },
+  { id: "cf_tp_25", title: "Accidental Victory", link: "https://codeforces.com/problemset/problem/1490/E" },
+  { id: "cf_tp_26", title: "They Are Everywhere", link: "https://codeforces.com/problemset/problem/701/C" },
+  { id: "cf_tp_27", title: "Buying Shovels", link: "https://codeforces.com/problemset/problem/1360/D" },
+  { id: "cf_tp_28", title: "Minimize the Permutation", link: "https://codeforces.com/problemset/problem/1256/B" },
+  { id: "cf_tp_29", title: "Yet Another Bookshelf", link: "https://codeforces.com/problemset/problem/1433/B" },
+  { id: "cf_tp_30", title: "Unstable String", link: "https://codeforces.com/problemset/problem/1535/C" }
         ]
       }
     ]
@@ -409,13 +467,13 @@ const CURRICULUM_DATA = {
         id: "p2_rec",
         title: "Recursion",
         note: "Striver resources allowed here.",
+       resources: [
+           { title: "Striver Sheet", link: "https://takeuforward.org/dsa/strivers-a2z-sheet-learn-dsa-a-to-z" }
+        ],
         questions: [
-            { id: "st_rec_1", title: "Subset Sums", link: "https://practice.geeksforgeeks.org/problems/subset-sums2234/1" },
-            { id: "st_rec_2", title: "Subset-II", link: "https://leetcode.com/problems/subsets-ii/" },
-            { id: "st_rec_3", title: "Combination Sum", link: "https://leetcode.com/problems/combination-sum/" },
-            { id: "st_rec_4", title: "Combination Sum II", link: "https://leetcode.com/problems/combination-sum-ii/" },
-            { id: "st_rec_5", title: "Palindrome Partitioning", link: "https://leetcode.com/problems/palindrome-partitioning/" },
-            { id: "st_rec_6", title: "K-th Permutation Sequence", link: "https://leetcode.com/problems/permutation-sequence/" }
+          {
+            id: "st_str", title: "Recursion", link: "https://takeuforward.org/dsa/strivers-a2z-sheet-learn-dsa-a-to-z" },
+          
         ]
       },
       {
@@ -424,23 +482,18 @@ const CURRICULUM_DATA = {
         note: "DO NOT USE STRIVER. Use Vivek Gupta + TLE Eliminator. Learn Tabulation directly.",
         isWarning: true,
         resources: [
-            { title: "Vivek Gupta Channel", link: "https://www.youtube.com/user/vivekgupta3333" },
-            { title: "TLE Eliminator CP Sheet", link: "https://www.tle-eliminators.com/cp-sheet" }
+            { title: "Vivek Gupta Channel", link: "https://www.youtube.com/playlist?list=PLqf9emQRQrnKA_EeveiXQj_uP25w8_5qL" },
+            { title: "CSES Sheet", link: "https://cses.fi/problemset/" },
+            { title: "A-Z DP SHEET", link:"https://docs.google.com/document/d/19IeItjgoFmrXlJ6mFQIZi3V-LOUSkAOc1MkJo69uyO8/edit?pli=1&tab=t.0"},
+            { title: "Striver sheet (no video)", link: "https://takeuforward.org/dsa/strivers-a2z-sheet-learn-dsa-a-to-z"},
+            { title: "Codeforces(1600-1800)", link: "https://codeforces.com/problemset?tags=dp,1600-1800"}
         ],
         questions: [
-            { id: "at_dp_1", title: "A - Frog 1", link: "https://atcoder.jp/contests/dp/tasks/dp_a" },
-            { id: "at_dp_2", title: "B - Frog 2", link: "https://atcoder.jp/contests/dp/tasks/dp_b" },
-            { id: "at_dp_3", title: "C - Vacation", link: "https://atcoder.jp/contests/dp/tasks/dp_c" },
-            { id: "at_dp_4", title: "D - Knapsack 1", link: "https://atcoder.jp/contests/dp/tasks/dp_d" },
-            { id: "at_dp_5", title: "E - Knapsack 2", link: "https://atcoder.jp/contests/dp/tasks/dp_e" },
-            { id: "at_dp_6", title: "F - LCS", link: "https://atcoder.jp/contests/dp/tasks/dp_f" },
-            { id: "at_dp_7", title: "G - Longest Path", link: "https://atcoder.jp/contests/dp/tasks/dp_g" },
-            { id: "at_dp_8", title: "H - Grid 1", link: "https://atcoder.jp/contests/dp/tasks/dp_h" },
-            { id: "cses_dp_1", title: "CSES: Dice Combinations", link: "https://cses.fi/problemset/task/1633" },
-            { id: "cses_dp_2", title: "CSES: Minimizing Coins", link: "https://cses.fi/problemset/task/1634" },
-            { id: "cses_dp_3", title: "CSES: Coin Combinations I", link: "https://cses.fi/problemset/task/1635" },
-            { id: "cses_dp_4", title: "CSES: Coin Combinations II", link: "https://cses.fi/problemset/task/1636" },
-            { id: "cses_dp_5", title: "CSES: Removing Digits", link: "https://cses.fi/problemset/task/1637" }
+            { id:"vivekgupta", title: "Vivek Gupta Channel", link: "https://www.youtube.com/playlist?list=PLqf9emQRQrnKA_EeveiXQj_uP25w8_5qL" },
+            { id:"cses",title: "CSES Sheet", link: "https://cses.fi/problemset/" },
+            { id:"a-z_dp",title: "A-Z DP SHEET", link:"https://docs.google.com/document/d/19IeItjgoFmrXlJ6mFQIZi3V-LOUSkAOc1MkJo69uyO8/edit?pli=1&tab=t.0"},
+            { id:"str",title: "Striver sheet (no video)", link: "https://takeuforward.org/dsa/strivers-a2z-sheet-learn-dsa-a-to-z"},
+            { id:"cf",title: "Codeforces(1600-1800)", link: "https://codeforces.com/problemset?tags=dp,1600-1800"}
         ]
       }
     ]
@@ -452,77 +505,132 @@ const CURRICULUM_DATA = {
        {
         id: "p3_graphs",
         title: "Graphs (54 Questions)",
+        resources: [
+            { title: "CSES Sheet", link: "https://cses.fi/problemset/" },
+            { title: "Striver sheet", link: "https://takeuforward.org/dsa/strivers-a2z-sheet-learn-dsa-a-to-z"},
+        ],
         questions: [
-            { id: "st_gr_1", title: "BFS of Graph", link: "https://practice.geeksforgeeks.org/problems/bfs-traversal-of-graph/1" },
-            { id: "st_gr_2", title: "DFS of Graph", link: "https://practice.geeksforgeeks.org/problems/depth-first-traversal-for-a-graph/1" },
-            { id: "st_gr_3", title: "Number of Provinces", link: "https://leetcode.com/problems/number-of-provinces/" },
-            { id: "st_gr_4", title: "Connected Components in Matrix", link: "https://leetcode.com/problems/number-of-provinces/" },
-            { id: "st_gr_5", title: "Rotting Oranges", link: "https://leetcode.com/problems/rotting-oranges/" },
-            { id: "st_gr_6", title: "Flood Fill", link: "https://leetcode.com/problems/flood-fill/" },
-            { id: "st_gr_7", title: "Cycle Detection (BFS - Undirected)", link: "https://practice.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/1" },
-            { id: "st_gr_8", title: "Cycle Detection (DFS - Undirected)", link: "https://practice.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/1" },
-            { id: "st_gr_9", title: "0/1 Matrix (Distance of nearest 0)", link: "https://leetcode.com/problems/01-matrix/" },
-            { id: "st_gr_10", title: "Surrounded Regions", link: "https://leetcode.com/problems/surrounded-regions/" },
-            { id: "st_gr_11", title: "Number of Enclaves", link: "https://leetcode.com/problems/number-of-enclaves/" },
-            { id: "st_gr_12", title: "Word Ladder I", link: "https://leetcode.com/problems/word-ladder/" },
-            { id: "st_gr_13", title: "Word Ladder II", link: "https://leetcode.com/problems/word-ladder-ii/" },
-            { id: "st_gr_14", title: "Is Graph Bipartite?", link: "https://leetcode.com/problems/is-graph-bipartite/" },
-            { id: "st_gr_15", title: "Cycle Detection (DFS - Directed)", link: "https://leetcode.com/problems/course-schedule/" },
-            { id: "st_gr_16", title: "Find Eventual Safe States", link: "https://leetcode.com/problems/find-eventual-safe-states/" },
-            { id: "st_gr_17", title: "Topological Sort", link: "https://practice.geeksforgeeks.org/problems/topological-sort/1" },
-            { id: "st_gr_18", title: "Kahn's Algorithm", link: "https://practice.geeksforgeeks.org/problems/topological-sort/1" },
-            { id: "st_gr_19", title: "Cycle Detection (BFS - Directed)", link: "https://leetcode.com/problems/course-schedule-ii/" },
-            { id: "st_gr_20", title: "Course Schedule I", link: "https://leetcode.com/problems/course-schedule/" },
-            { id: "st_gr_21", title: "Course Schedule II", link: "https://leetcode.com/problems/course-schedule-ii/" },
-            { id: "st_gr_22", title: "Alien Dictionary", link: "https://practice.geeksforgeeks.org/problems/alien-dictionary/1" },
-            { id: "st_gr_23", title: "Shortest Path in Undirected Graph (Unit Wt)", link: "https://practice.geeksforgeeks.org/problems/shortest-path-in-undirected-graph-having-unit-distance/1" },
-            { id: "st_gr_24", title: "Shortest Path in DAG", link: "https://practice.geeksforgeeks.org/problems/shortest-path-in-undirected-graph/1" },
-            { id: "st_gr_25", title: "Dijkstra's Algorithm (PQ)", link: "https://practice.geeksforgeeks.org/problems/implementing-dijkstra-set-1-adjacency-matrix/1" },
-            { id: "st_gr_26", title: "Dijkstra's Algorithm (Set)", link: "https://practice.geeksforgeeks.org/problems/implementing-dijkstra-set-1-adjacency-matrix/1" },
-            { id: "st_gr_27", title: "Shortest Path in Binary Matrix", link: "https://leetcode.com/problems/shortest-path-in-binary-matrix/" },
-            { id: "st_gr_28", title: "Path With Minimum Effort", link: "https://leetcode.com/problems/path-with-minimum-effort/" },
-            { id: "st_gr_29", title: "Cheapest Flights Within K Stops", link: "https://leetcode.com/problems/cheapest-flights-within-k-stops/" },
-            { id: "st_gr_30", title: "Network Delay Time", link: "https://leetcode.com/problems/network-delay-time/" },
-            { id: "st_gr_31", title: "Number of Ways to Arrive at Destination", link: "https://leetcode.com/problems/number-of-ways-to-arrive-at-destination/" },
-            { id: "st_gr_32", title: "Minimum Multiplications to Reach End", link: "https://practice.geeksforgeeks.org/problems/minimum-multiplications-to-reach-end/1" },
-            { id: "st_gr_33", title: "Bellman Ford Algorithm", link: "https://practice.geeksforgeeks.org/problems/distance-from-the-source-bellman-ford-algorithm/1" },
-            { id: "st_gr_34", title: "Floyd Warshall Algorithm", link: "https://practice.geeksforgeeks.org/problems/implementing-floyd-warshall2042/1" },
-            { id: "st_gr_35", title: "Find the City With the Smallest Number of Neighbors", link: "https://leetcode.com/problems/find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance/" },
-            { id: "st_gr_36", title: "Prim's Algorithm", link: "https://practice.geeksforgeeks.org/problems/minimum-spanning-tree/1" },
-            { id: "st_gr_37", title: "Disjoint Set (Union by Rank)", link: "https://practice.geeksforgeeks.org/problems/disjoint-set-union-find/1" },
-            { id: "st_gr_38", title: "Disjoint Set (Union by Size)", link: "https://practice.geeksforgeeks.org/problems/disjoint-set-union-find/1" },
-            { id: "st_gr_39", title: "Kruskal's Algorithm", link: "https://practice.geeksforgeeks.org/problems/minimum-spanning-tree/1" },
-            { id: "st_gr_40", title: "Number of Operations to Make Network Connected", link: "https://leetcode.com/problems/number-of-operations-to-make-network-connected/" },
-            { id: "st_gr_41", title: "Most Stones Removed with Same Row or Column", link: "https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/" },
-            { id: "st_gr_42", title: "Accounts Merge", link: "https://leetcode.com/problems/accounts-merge/" },
-            { id: "st_gr_43", title: "Number of Islands II", link: "https://leetcode.com/problems/number-of-islands-ii/" },
-            { id: "st_gr_44", title: "Making A Large Island", link: "https://leetcode.com/problems/making-a-large-island/" },
-            { id: "st_gr_45", title: "Swim in Rising Water", link: "https://leetcode.com/problems/swim-in-rising-water/" },
-            { id: "st_gr_46", title: "Strongly Connected Components (Kosaraju)", link: "https://practice.geeksforgeeks.org/problems/strongly-connected-components-kosarajus-algo/1" },
-            { id: "st_gr_47", title: "Tarjan's Algorithm (Bridges)", link: "https://leetcode.com/problems/critical-connections-in-a-network/" },
-            { id: "st_gr_48", title: "Articulation Points", link: "https://practice.geeksforgeeks.org/problems/articulation-point-1/1" },
-            { id: "st_gr_49", title: "Clone Graph", link: "https://leetcode.com/problems/clone-graph/" },
-            { id: "st_gr_50", title: "Number of Islands", link: "https://leetcode.com/problems/number-of-islands/" },
-            { id: "st_gr_51", title: "Snake and Ladders", link: "https://leetcode.com/problems/snakes-and-ladders/" },
-            { id: "st_gr_52", title: "Open the Lock", link: "https://leetcode.com/problems/open-the-lock/" },
-            { id: "st_gr_53", title: "Word Search", link: "https://leetcode.com/problems/word-search/" },
-            { id: "st_gr_54", title: "Pacific Atlantic Water Flow", link: "https://leetcode.com/problems/pacific-atlantic-water-flow/" }
+            { id:"cses",title: "CSES Sheet", link: "https://cses.fi/problemset/" },
+            { id:"str",title: "Striver sheet (no video)", link: "https://takeuforward.org/dsa/strivers-a2z-sheet-learn-dsa-a-to-z"},
+            { id: "at_gr_1", title: "Frog 1", link: "https://atcoder.jp/contests/dp/tasks/dp_a" },
+  { id: "at_gr_2", title: "Grid 1", link: "https://atcoder.jp/contests/dp/tasks/dp_h" },
+  { id: "at_gr_3", title: "Graph Isomorphism", link: "https://atcoder.jp/contests/abc151/tasks/abc151_c" },
+  { id: "at_gr_4", title: "Friends", link: "https://atcoder.jp/contests/abc177/tasks/abc177_d" },
+  { id: "at_gr_5", title: "Lunlun Number", link: "https://atcoder.jp/contests/abc161/tasks/abc161_d" },
+  { id: "at_gr_6", title: "One-stroke Path", link: "https://atcoder.jp/contests/abc054/tasks/abc054_c" },
+  { id: "at_gr_7", title: "Maze Master", link: "https://atcoder.jp/contests/abc151/tasks/abc151_d" },
+  { id: "at_gr_8", title: "Walk on Multiplication Table", link: "https://atcoder.jp/contests/abc261/tasks/abc261_e" },
+  { id: "at_gr_9", title: "Shipping Center", link: "https://atcoder.jp/contests/abc195/tasks/abc195_d" },
+  { id: "at_gr_10", title: "Shortest Path", link: "https://atcoder.jp/contests/abc007/tasks/abc007_3" },
+  { id: "at_gr_11", title: "Grid Repainting 2", link: "https://atcoder.jp/contests/abc096/tasks/abc096_c" },
+  { id: "at_gr_12", title: "Counting Roads", link: "https://atcoder.jp/contests/abc061/tasks/abc061_b" },
+  { id: "at_gr_13", title: "Train Ticket", link: "https://atcoder.jp/contests/abc079/tasks/abc079_c" },
+  { id: "at_gr_14", title: "Cat Snuke and a Voyage", link: "https://atcoder.jp/contests/abc068/tasks/abc068_c" },
+  { id: "at_gr_15", title: "Ki", link: "https://atcoder.jp/contests/abc138/tasks/abc138_d" },
+  { id: "he_gr_1", title: "Bishu and his Girlfriend", link: "https://www.hackerearth.com/practice/algorithms/graphs/breadth-first-search/practice-problems/algorithm/bishu-and-his-girlfriend/" },
+  { id: "he_gr_2", title: "Monk and the Islands", link: "https://www.hackerearth.com/practice/algorithms/graphs/breadth-first-search/practice-problems/algorithm/monk-and-the-islands/" },
+  { id: "he_gr_3", title: "Connected Components in a Graph", link: "https://www.hackerearth.com/practice/algorithms/graphs/breadth-first-search/practice-problems/algorithm/connected-components-in-a-graph/" },
+  { id: "he_gr_4", title: "Jungle Run", link: "https://www.hackerearth.com/practice/algorithms/graphs/breadth-first-search/practice-problems/algorithm/jungle-run/" },
+  { id: "he_gr_5", title: "Unreachable Nodes", link: "https://www.hackerearth.com/practice/algorithms/graphs/depth-first-search/practice-problems/algorithm/unreachable-nodes/" },
+  { id: "he_gr_6", title: "So NP", link: "https://www.hackerearth.com/practice/algorithms/graphs/graph-representation/practice-problems/algorithm/so-np-c559f406/" },
+  { id: "he_gr_7", title: "Minimum Spanning Tree", link: "https://www.hackerearth.com/practice/algorithms/graphs/minimum-spanning-tree/practice-problems/algorithm/minimum-spanning-tree-5/" },
+  { id: "he_gr_8", title: "Oliver and the Game", link: "https://www.hackerearth.com/practice/algorithms/graphs/topological-sort/practice-problems/algorithm/oliver-and-the-game-3/" },
+  { id: "he_gr_9", title: "Monk at the Graph Factory", link: "https://www.hackerearth.com/practice/algorithms/graphs/graph-representation/practice-problems/algorithm/monk-at-the-graph-factory/" },
+  { id: "he_gr_10", title: "Social Networking Graph", link: "https://www.hackerearth.com/practice/algorithms/graphs/breadth-first-search/practice-problems/algorithm/social-networking-graph/" },
+  { id: "he_gr_11", title: "Feasible relations", link: "https://www.hackerearth.com/practice/algorithms/graphs/depth-first-search/practice-problems/algorithm/feasible-relations/" },
+  { id: "he_gr_12", title: "Dhoom 4", link: "https://www.hackerearth.com/practice/algorithms/graphs/breadth-first-search/practice-problems/algorithm/dhoom-4/" },
+  { id: "he_gr_13", title: "Shortest Path Problem", link: "https://www.hackerearth.com/practice/algorithms/graphs/shortest-path-algorithms/practice-problems/algorithm/shortest-path-problem/" },
+  { id: "he_gr_14", title: "Strange Game", link: "https://www.hackerearth.com/practice/algorithms/graphs/shortest-path-algorithms/practice-problems/algorithm/strange-game-1/" },
+  { id: "he_gr_15", title: "Edge Existence", link: "https://www.hackerearth.com/practice/algorithms/graphs/graph-representation/practice-problems/algorithm/edge-existence/" }
         ]
        },
        {
         id: "p3_trees",
-        title: "Trees (Kartik Arora + CSES)",
+        title: "Trees+Tree DP (Kartik Arora + CSES)",
+        resources: [
+            { title: "CSES Sheet", link: "https://cses.fi/problemset/" },
+            { title: "Tree Centre", link: "https://www.youtube.com/watch?v=nzF_9bjDzdc"},
+            { title: "Tree Diameter", link: "https://www.youtube.com/watch?v=m8qXEz1Xe8w"},
+            { title: "Tree Centroid", link: "https://www.youtube.com/watch?v=o9hWO52bxI4"},
+            { title: "Karthik Arora", link: "https://www.youtube.com/playlist?list=PLb3g_Z8nEv1j_BC-fmZWHFe6jmU_zv-8s"},
+        ],
+
         questions: [
-            { id: "st_tr_1", title: "Inorder Traversal", link: "https://leetcode.com/problems/binary-tree-inorder-traversal/" },
-            { id: "st_tr_2", title: "Preorder Traversal", link: "https://leetcode.com/problems/binary-tree-preorder-traversal/" },
-            { id: "st_tr_3", title: "Postorder Traversal", link: "https://leetcode.com/problems/binary-tree-postorder-traversal/" },
-            { id: "st_tr_4", title: "LeftView Of Binary Tree", link: "https://practice.geeksforgeeks.org/problems/left-view-of-binary-tree/1" },
-            { id: "st_tr_5", title: "Bottom View of Binary Tree", link: "https://practice.geeksforgeeks.org/problems/bottom-view-of-binary-tree/1" },
-            { id: "st_tr_6", title: "Top View of Binary Tree", link: "https://practice.geeksforgeeks.org/problems/top-view-of-binary-tree/1" },
-            { id: "st_tr_7", title: "Vertical Order Traversal", link: "https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/" },
-            { id: "st_tr_8", title: "Max Width of Binary Tree", link: "https://leetcode.com/problems/maximum-width-of-binary-tree/" },
-            { id: "st_tr_9", title: "Level Order Traversal", link: "https://leetcode.com/problems/binary-tree-level-order-traversal/" }
+          {id:"cses",title:"CSES Sheet",link:"https://cses.fi/problemset/"}
         ]
+       },
+       {
+        id:"p3_DSU",
+        title:"DSU",
+        resources:[
+          { title: "CSES Sheet", link: "https://cses.fi/problemset/" },
+            { title: "Vivek Gupta", link: "https://www.youtube.com/playlist?list=PLqf9emQRQrnIQ3DkkyBNGe1s4l3HqMqrz"},
+
+
+        ],
+        questions:[
+          {id:"cses",title:"CSES Sheet",link:"https://cses.fi/problemset/"}
+        ]
+
+       },
+       {
+        id:"p3_BL",
+        title:"Binary Lifting",
+        resources:[
+          {
+            title:"pepcoding",link:"https://www.youtube.com/playlist?list=PL-Jc9J83PIiGC6uQ2CjMhSaWAcmjbAQfp",
+            
+          },
+          {title:"usaco",link:"https://usaco.guide/plat/binary-jump?lang=cpp"},
+          { title: "CSES Sheet", link: "https://cses.fi/problemset/" }
+
+
+        ],
+        questions:[
+          {id:"usaco",title:"USACO",link:"https://usaco.guide/plat/binary-jump?lang=cpp"},
+          {id:"cses",title:"CSES",link:"https://cses.fi/problemset/"}
+        ]
+
+       },
+       {
+        id:"p3_dpg",
+        title:"DP on graphs",
+        resources:[
+          {title:"Codeforces blog",link:"https://codeforces.com/blog/entry/95084"},
+        ],
+        questions:[
+          {id:"cf",title:"Codeforces blog",link:"https://codeforces.com/blog/entry/95084"},
+        ]
+       },
+       {
+        id:"p3_slm",
+        title:"Small to large merging",
+        resources:[
+          {title:"USACO",link:"https://usaco.guide/plat/merging?lang=cpp"},
+        ],
+        questions:[
+
+        ],
+       },
+       {id:"p3_BTDP",
+        title:"Bitmask DP",
+        resources:[
+          {title:"kartik Arora",link:"https://www.youtube.com/playlist?list=PLb3g_Z8nEv1icFNrtZqByO1CrWVHLlO5g"},
+        ],
+        questions:[
+
+        ],
+
+       },
+       {id:"p3_DGTDP",
+        title:"Digit DP",
+        resources:[
+          {title:"kartik Arora",link:"https://www.youtube.com/playlist?list=PLb3g_Z8nEv1hB69JL9K7KfEyK8iQNj9nX"},
+        ],
+        questions:[
+
+        ],
+
        }
     ]
   },
@@ -533,80 +641,49 @@ const CURRICULUM_DATA = {
       {
         id: "p4_ll",
         title: "Linked Lists (Striver)",
+        resources: [
+           { title: "Striver Sheet", link: "https://takeuforward.org/dsa/strivers-a2z-sheet-learn-dsa-a-to-z" }
+        ],
         questions: [
-            { id: "st_ll_1", title: "Reverse Linked List", link: "https://leetcode.com/problems/reverse-linked-list/" },
-            { id: "st_ll_2", title: "Middle of Linked List", link: "https://leetcode.com/problems/middle-of-the-linked-list/" },
-            { id: "st_ll_3", title: "Merge Two Sorted Lists", link: "https://leetcode.com/problems/merge-two-sorted-lists/" },
-            { id: "st_ll_4", title: "Remove N-th node from back", link: "https://leetcode.com/problems/remove-nth-node-from-end-of-list/" },
-            { id: "st_ll_5", title: "Add two numbers as LL", link: "https://leetcode.com/problems/add-two-numbers/" },
-            { id: "st_ll_6", title: "Delete Node in LL", link: "https://leetcode.com/problems/delete-node-in-a-linked-list/" },
-            { id: "st_ll_7", title: "Intersection of Two LL", link: "https://leetcode.com/problems/intersection-of-two-linked-lists/" },
-            { id: "st_ll_8", title: "Detect Cycle in LL", link: "https://leetcode.com/problems/linked-list-cycle/" },
-            { id: "st_ll_9", title: "Reverse Nodes in k-Group", link: "https://leetcode.com/problems/reverse-nodes-in-k-group/" },
-            { id: "st_ll_10", title: "Check if LL is Palindrome", link: "https://leetcode.com/problems/palindrome-linked-list/" },
-            { id: "st_ll_11", title: "Start point of loop", link: "https://leetcode.com/problems/linked-list-cycle-ii/" },
-            { id: "st_ll_12", title: "Flattening of a LL", link: "https://practice.geeksforgeeks.org/problems/flattening-a-linked-list/1" },
-            { id: "st_ll_13", title: "Rotate List", link: "https://leetcode.com/problems/rotate-list/" },
-            { id: "st_ll_14", title: "Copy List with Random Pointer", link: "https://leetcode.com/problems/copy-list-with-random-pointer/" }
+          {
+            id: "st_str", title: "Linked list", link: "https://takeuforward.org/dsa/strivers-a2z-sheet-learn-dsa-a-to-z" },
+          
         ]
       },
       {
         id: "p4_bt",
         title: "Binary Trees (Striver)",
+        resources: [
+           { title: "Striver Sheet", link: "https://takeuforward.org/dsa/strivers-a2z-sheet-learn-dsa-a-to-z" }
+        ],
         questions: [
-            { id: "st_bt_1", title: "Inorder Traversal", link: "https://leetcode.com/problems/binary-tree-inorder-traversal/" },
-            { id: "st_bt_2", title: "Preorder Traversal", link: "https://leetcode.com/problems/binary-tree-preorder-traversal/" },
-            { id: "st_bt_3", title: "Postorder Traversal", link: "https://leetcode.com/problems/binary-tree-postorder-traversal/" },
-            { id: "st_bt_4", title: "Morris Inorder Traversal", link: "https://leetcode.com/problems/binary-tree-inorder-traversal/" },
-            { id: "st_bt_5", title: "Morris Preorder Traversal", link: "https://leetcode.com/problems/binary-tree-preorder-traversal/" },
-            { id: "st_bt_6", title: "LeftView Of Binary Tree", link: "https://practice.geeksforgeeks.org/problems/left-view-of-binary-tree/1" },
-            { id: "st_bt_7", title: "Bottom View of Binary Tree", link: "https://practice.geeksforgeeks.org/problems/bottom-view-of-binary-tree/1" },
-            { id: "st_bt_8", title: "Top View of Binary Tree", link: "https://practice.geeksforgeeks.org/problems/top-view-of-binary-tree/1" },
-            { id: "st_bt_9", title: "Level Order Traversal", link: "https://leetcode.com/problems/binary-tree-level-order-traversal/" },
-            { id: "st_bt_10", title: "Vertical Order Traversal", link: "https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/" },
-            { id: "st_bt_11", title: "Root to Node Path", link: "https://www.interviewbit.com/problems/path-to-given-node/" },
-            { id: "st_bt_12", title: "Max Width of Binary Tree", link: "https://leetcode.com/problems/maximum-width-of-binary-tree/" },
-            { id: "st_bt_13", title: "Check if Balanced Binary Tree", link: "https://leetcode.com/problems/balanced-binary-tree/" },
-            { id: "st_bt_14", title: "Diameter of Binary Tree", link: "https://leetcode.com/problems/diameter-of-binary-tree/" },
-            { id: "st_bt_15", title: "LCA in Binary Tree", link: "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/" },
-            { id: "st_bt_16", title: "Check if two trees are identical", link: "https://leetcode.com/problems/same-tree/" },
-            { id: "st_bt_17", title: "Zig Zag Traversal", link: "https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/" },
-            { id: "st_bt_18", title: "Boundary Traversal", link: "https://leetcode.com/problems/boundary-of-binary-tree/" }
+          {
+            id: "st_str", title: "Binary Trees", link: "https://takeuforward.org/dsa/strivers-a2z-sheet-learn-dsa-a-to-z" },
+          
         ]
       },
       {
         id: "p4_bst",
         title: "Binary Search Trees (Striver - 16 Questions)",
+        resources: [
+           { title: "Striver Sheet", link: "https://takeuforward.org/dsa/strivers-a2z-sheet-learn-dsa-a-to-z" }
+        ],
         questions: [
-            { id: "st_bst_1", title: "Populate Next Right Pointers", link: "https://leetcode.com/problems/populating-next-right-pointers-in-each-node/" },
-            { id: "st_bst_2", title: "Search given Key in BST", link: "https://leetcode.com/problems/search-in-a-binary-search-tree/" },
-            { id: "st_bst_3", title: "Construct BST from Keys", link: "https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/" },
-            { id: "st_bst_4", title: "Check is a BT is BST", link: "https://leetcode.com/problems/validate-binary-search-tree/" },
-            { id: "st_bst_5", title: "LCA of two nodes in BST", link: "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/" },
-            { id: "st_bst_6", title: "Find LCA of two keys in BST", link: "https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/" },
-            { id: "st_bst_7", title: "Predecessor and Successor", link: "https://practice.geeksforgeeks.org/problems/predecessor-and-successor/1" },
-            { id: "st_bst_8", title: "Floor in a BST", link: "https://www.codingninjas.com/studio/problems/floor-from-bst_920457" },
-            { id: "st_bst_9", title: "Ceil in a BST", link: "https://www.codingninjas.com/studio/problems/ceil-from-bst_920464" },
-            { id: "st_bst_10", title: "K-th Smallest Element in BST", link: "https://leetcode.com/problems/kth-smallest-element-in-a-bst/" },
-            { id: "st_bst_11", title: "K-th Largest Element in BST", link: "https://leetcode.com/problems/kth-smallest-element-in-a-bst/" },
-            { id: "st_bst_12", title: "BST Iterator", link: "https://leetcode.com/problems/binary-search-tree-iterator/" },
-            { id: "st_bst_13", title: "Size of Largest BST in Binary Tree", link: "https://leetcode.com/problems/largest-bst-subtree/" },
-            { id: "st_bst_14", title: "Serialize and Deserialize Binary Tree", link: "https://leetcode.com/problems/serialize-and-deserialize-binary-tree/" },
-            { id: "st_bst_15", title: "Recover BST", link: "https://leetcode.com/problems/recover-binary-search-tree/" },
-            { id: "st_bst_16", title: "Two Sum IV - Input is a BST", link: "https://leetcode.com/problems/two-sum-iv-input-is-a-bst/" }
+          {
+            id: "st_str", title: "Binary Search Trees", link: "https://takeuforward.org/dsa/strivers-a2z-sheet-learn-dsa-a-to-z" },
+          
         ]
       },
       {
         id: "p4_tries",
         title: "Tries (Striver)",
+        resources: [
+           { title: "Striver Sheet", link: "https://takeuforward.org/dsa/strivers-a2z-sheet-learn-dsa-a-to-z" }
+        ],
         questions: [
-            { id: "st_trie_1", title: "Implement Trie (Prefix Tree)", link: "https://leetcode.com/problems/implement-trie-prefix-tree/" },
-            { id: "st_trie_2", title: "Implement Trie II", link: "https://www.codingninjas.com/studio/problems/implement-trie_1387041" },
-            { id: "st_trie_3", title: "Longest String with All Prefixes", link: "https://www.codingninjas.com/studio/problems/complete-string_2687860" },
-            { id: "st_trie_4", title: "Number of Distinct Substrings in a String", link: "https://www.codingninjas.com/studio/problems/count-distinct-substrings_985292" },
-            { id: "st_trie_5", title: "Power Set", link: "https://practice.geeksforgeeks.org/problems/power-set4302/1" },
-            { id: "st_trie_6", title: "Maximum XOR of two numbers in an array", link: "https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/" },
-            { id: "st_trie_7", title: "Maximum XOR With an Element From Array", link: "https://leetcode.com/problems/maximum-xor-with-an-element-from-array/" }
+          {
+            id: "st_str", title: "Tries", link: "https://takeuforward.org/dsa/strivers-a2z-sheet-learn-dsa-a-to-z" },
+          
         ]
       }
     ]
@@ -626,13 +703,9 @@ const CPIManager = () => (
   <div className="bg-slate-800 text-slate-100 p-4 rounded-lg shadow-lg mb-6 border-l-4 border-blue-500">
     <div className="flex items-center gap-2 mb-2">
       <Award className="w-5 h-5 text-blue-400" />
-      <h3 className="font-bold text-lg">CPI Manager (Industrial Engineering Dept)</h3>
+      <h3 className="font-bold text-lg">DSA</h3>
     </div>
-    <ul className="list-disc list-inside text-sm text-slate-300 space-y-1">
-      <li>Maintain CGPA &gt; 8.5. This is non-negotiable for top tier shortlist.</li>
-      <li>Balance CP with core Industrial Engg subjects.</li>
-      <li>If stuck on CP for &gt; 3 days, switch to Development to avoid burnout.</li>
-    </ul>
+    
   </div>
 );
 
