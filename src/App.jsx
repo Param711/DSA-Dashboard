@@ -11,7 +11,8 @@ import {
   AlertTriangle,
   Award,
   Terminal,
-  Code
+  Code,
+  Star
 } from 'lucide-react';
 
 // ==========================================
@@ -719,7 +720,7 @@ const ProgressBar = ({ progress }) => (
   </div>
 );
 
-const TopicSection = ({ section, completedItems, toggleItem }) => {
+const TopicSection = ({ section, completedItems, toggleItem, starredItems, toggleStar }) => {
   const [isOpen, setIsOpen] = useState(false);
   
   // Calculate specific progress for this section
@@ -792,10 +793,10 @@ const TopicSection = ({ section, completedItems, toggleItem }) => {
                         key={q.id}
                         className={`flex items-center justify-between p-3 rounded border transition-all ${completedItems[q.id] ? 'bg-green-50 border-green-200' : 'bg-white border-slate-200 hover:border-slate-300'}`}
                     >
-                        <div className="flex items-center gap-3 overflow-hidden">
+                        <div className="flex items-center gap-3 overflow-hidden flex-1">
                             <button 
                                 onClick={() => toggleItem(q.id)}
-                                className="focus:outline-none"
+                                className="focus:outline-none flex-shrink-0"
                             >
                                 {completedItems[q.id] ? 
                                     <CheckCircle className="w-5 h-5 text-green-600" /> : 
@@ -806,14 +807,32 @@ const TopicSection = ({ section, completedItems, toggleItem }) => {
                                 {q.title}
                             </span>
                         </div>
-                        <a 
-                            href={q.link} 
-                            target="_blank" 
-                            rel="noreferrer"
-                            className="p-1 text-slate-400 hover:text-blue-600 transition-colors"
-                        >
-                            <ExternalLink className="w-4 h-4" />
-                        </a>
+                        
+                        <div className="flex items-center gap-2 pl-2">
+                          {/* STAR BUTTON */}
+                          <button
+                            onClick={() => toggleStar(q.id)}
+                            className="p-1 focus:outline-none hover:bg-slate-100 rounded-full transition-colors"
+                            title={starredItems[q.id] ? "Unstar" : "Star for later"}
+                          >
+                            <Star 
+                              className={`w-4 h-4 transition-colors ${
+                                starredItems[q.id] 
+                                  ? 'fill-yellow-400 text-yellow-400' 
+                                  : 'text-slate-300 hover:text-yellow-400'
+                              }`} 
+                            />
+                          </button>
+
+                          <a 
+                              href={q.link} 
+                              target="_blank" 
+                              rel="noreferrer"
+                              className="p-1 text-slate-400 hover:text-blue-600 transition-colors"
+                          >
+                              <ExternalLink className="w-4 h-4" />
+                          </a>
+                        </div>
                     </div>
                 ))}
             </div>
@@ -829,13 +848,19 @@ const TopicSection = ({ section, completedItems, toggleItem }) => {
 export default function App() {
   const [activePhase, setActivePhase] = useState("phase0");
   const [completedItems, setCompletedItems] = useState({});
+  const [starredItems, setStarredItems] = useState({});
   const [isLoaded, setIsLoaded] = useState(false);
 
   // Load from LocalStorage on Mount
   useEffect(() => {
-    const saved = localStorage.getItem('kgp_dsa_progress');
-    if (saved) {
-      setCompletedItems(JSON.parse(saved));
+    const savedProgress = localStorage.getItem('kgp_dsa_progress');
+    const savedStars = localStorage.getItem('kgp_dsa_starred');
+    
+    if (savedProgress) {
+      setCompletedItems(JSON.parse(savedProgress));
+    }
+    if (savedStars) {
+      setStarredItems(JSON.parse(savedStars));
     }
     setIsLoaded(true);
   }, []);
@@ -844,11 +869,19 @@ export default function App() {
   useEffect(() => {
     if (isLoaded) {
       localStorage.setItem('kgp_dsa_progress', JSON.stringify(completedItems));
+      localStorage.setItem('kgp_dsa_starred', JSON.stringify(starredItems));
     }
-  }, [completedItems, isLoaded]);
+  }, [completedItems, starredItems, isLoaded]);
 
   const toggleItem = (id) => {
     setCompletedItems(prev => ({
+      ...prev,
+      [id]: !prev[id]
+    }));
+  };
+
+  const toggleStar = (id) => {
+    setStarredItems(prev => ({
       ...prev,
       [id]: !prev[id]
     }));
@@ -883,6 +916,10 @@ export default function App() {
              </div>
           </div>
           <div className="hidden md:flex items-center gap-4 text-sm text-slate-300">
+            <span className="flex items-center gap-1">
+                <Star className={`w-4 h-4 ${Object.values(starredItems).filter(Boolean).length > 0 ? 'text-yellow-400 fill-yellow-400' : ''}`}/> 
+                {Object.values(starredItems).filter(Boolean).length} Starred
+            </span>
             <span className="flex items-center gap-1"><Terminal className="w-4 h-4"/> Phase 0-5 Guide</span>
           </div>
         </div>
@@ -930,7 +967,9 @@ export default function App() {
                                 key={section.id} 
                                 section={section} 
                                 completedItems={completedItems} 
-                                toggleItem={toggleItem} 
+                                toggleItem={toggleItem}
+                                starredItems={starredItems}
+                                toggleStar={toggleStar}
                             />
                         ))
                     ) : (
