@@ -18,6 +18,26 @@ import {
   Moon,
   Sun
 } from 'lucide-react';
+// Helper to generate local solution paths
+// Helper to open files directly in VS Code
+// Helper to Smartly switch between Local VS Code and GitHub
+const getSolutionLink = (phaseId, title) => {
+  const cleanTitle = title.replace(/[^\w\s-]/g, '').trim().replace(/\s+/g, '_');
+  
+  // 1. Check if the site is running locally on your computer
+  const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+
+  if (isLocal) {
+    // --- SCENARIO A: YOU (Development Mode) ---
+    // Opens the file directly in your VS Code editor
+    const projectPath = "C:/Users/param/dsa-dashboars/dsa-dashboard";
+    return `vscode://file/${projectPath}/public/solutions/${phaseId}/${cleanTitle}.cpp`;
+  } else {
+    // --- SCENARIO B: EVERYONE ELSE (Deployment Mode) ---
+    // Opens the file on your GitHub repository so they can view the code
+    return `https://github.com/param711/DSA-Dashboard/blob/main/public/solutions/${phaseId}/${cleanTitle}.cpp`;
+  }
+};
 
 // ==========================================
 // DATA: The "Hardcoded" Curriculum (EXACT CONTENT)
@@ -1643,55 +1663,81 @@ const ProgressBar = ({ progress, height = "h-2.5", colorClass = "bg-blue-600" })
   </div>
 );
 
-const QuestionItem = ({ question, isCompleted, toggleComplete, isStarred, toggleStar }) => {
+const QuestionItem = ({ question, phaseId, isCompleted, toggleComplete, isStarred, toggleStar }) => {
+  
+  // 1. Generate the link to the local .cpp file
+  const localFileLink = getSolutionLink(phaseId, question.title);
+
+  // 2. Determine Text and Icon based on completion status
+  const actionText = isCompleted ? "Solution" : "Solve";
+  const actionIcon = isCompleted ? <Code className="w-3 h-3" /> : <ExternalLink className="w-3 h-3" />;
+
+  // 3. Define Styles (Blue for Solve, Green for Solution)
+  const btnStyle = isCompleted
+    ? "bg-green-100 text-green-700 border-green-200 hover:bg-green-200 dark:bg-green-900/40 dark:text-green-300 dark:border-green-800"
+    : "bg-blue-100 text-blue-700 border-blue-200 hover:bg-blue-200 dark:bg-blue-900/30 dark:text-blue-400 dark:border-blue-800";
+
   return (
     <div 
       className={`flex items-center justify-between p-3 rounded-lg border mb-2 transition-all duration-200 ${
         isCompleted 
-          ? 'bg-green-50 border-green-200 dark:bg-green-900/20 dark:border-green-800' 
-          : 'bg-white border-slate-100 hover:border-blue-200 hover:shadow-sm dark:bg-slate-800 dark:border-slate-700 dark:hover:border-blue-500/50'
+          ? 'bg-slate-50 border-slate-200 dark:bg-slate-900/30 dark:border-slate-800' 
+          : 'bg-white border-slate-100 hover:border-blue-200 dark:bg-slate-800 dark:border-slate-700'
       }`}
     >
       <div className="flex items-center gap-3 flex-1 overflow-hidden">
+        {/* Checkbox Button */}
         <button 
           onClick={() => toggleComplete(question.id)}
-          className={`flex-shrink-0 transition-colors duration-200 ${
-            isCompleted ? 'text-green-500' : 'text-slate-300 hover:text-green-400 dark:text-slate-500 dark:hover:text-green-400'
+          className={`flex-shrink-0 transition-colors ${
+            isCompleted ? 'text-green-500' : 'text-slate-300 hover:text-green-400'
           }`}
         >
           {isCompleted ? <CheckCircle className="w-6 h-6" /> : <Circle className="w-6 h-6" />}
         </button>
         
-        <div className="flex flex-col min-w-0">
-          <a 
-            href={question.link} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className={`font-medium truncate hover:text-blue-600 hover:underline flex items-center gap-1 ${
-              isCompleted ? 'text-slate-500 line-through decoration-slate-400 dark:text-slate-500 dark:decoration-slate-600' : 'text-slate-800 dark:text-slate-200'
-            }`}
-          >
-            {question.title}
-            <ExternalLink className="w-3 h-3 text-slate-400 opacity-50" />
-          </a>
-        </div>
+        {/* Question Title Link (Always goes to LeetCode/GFG) */}
+        <a 
+          href={question.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`font-medium truncate hover:underline decoration-blue-500/30 underline-offset-4 ${
+            isCompleted ? 'text-slate-500 line-through decoration-slate-300' : 'text-slate-800 dark:text-slate-200'
+          }`}
+        >
+          {question.title}
+        </a>
       </div>
 
-      <button 
-        onClick={() => toggleStar(question.id)}
-        className={`ml-3 p-1 rounded-full transition-all ${
-          isStarred 
-            ? 'text-yellow-400 hover:text-yellow-500 bg-yellow-50 dark:bg-yellow-900/20' 
-            : 'text-slate-300 hover:text-yellow-400 hover:bg-slate-50 dark:text-slate-600 dark:hover:bg-slate-700'
-        }`}
-      >
-        <Star className={`w-5 h-5 ${isStarred ? "fill-current" : ""}`} />
-      </button>
+      <div className="flex items-center gap-2 ml-3">
+        {/* ACTION BUTTON (Always opens local .cpp file) */}
+        <a 
+          href={localFileLink}
+          target="_blank" 
+          rel="noopener noreferrer"
+          className={`flex items-center gap-1.5 px-3 py-1 text-xs font-bold rounded-md border transition-colors shadow-sm ${btnStyle}`}
+        >
+          {actionIcon}
+          {actionText}
+        </a>
+
+        {/* Star Button */}
+        <button 
+          onClick={() => toggleStar(question.id)}
+          className={`p-1.5 rounded-full transition-colors ${
+            isStarred 
+              ? 'text-yellow-400 bg-yellow-50 dark:bg-yellow-900/20' 
+              : 'text-slate-300 hover:text-yellow-400 hover:bg-slate-50 dark:hover:bg-slate-800'
+          }`}
+        >
+          <Star className={`w-5 h-5 ${isStarred ? "fill-current" : ""}`} />
+        </button>
+      </div>
     </div>
   );
 };
 
-const SectionAccordion = ({ section, completedItems, toggleComplete, starredItems, toggleStar }) => {
+const SectionAccordion = ({ section, phaseId, completedItems, toggleComplete, starredItems, toggleStar }) => {
   const [isOpen, setIsOpen] = useState(false);
    
   const total = section.questions.length;
@@ -1781,6 +1827,7 @@ const SectionAccordion = ({ section, completedItems, toggleComplete, starredItem
                     // Use index as fallback for key if duplicate IDs exist in raw data
                     key={q.id ? `${q.id}-${qIdx}` : qIdx}
                     question={q}
+                    phaseId={phaseId}
                     isCompleted={!!completedItems[q.id]}
                     toggleComplete={toggleComplete}
                     isStarred={!!starredItems[q.id]}
@@ -1855,6 +1902,7 @@ const PhaseCard = ({ phaseKey, phaseData, completedItems, toggleComplete, starre
             <SectionAccordion 
               key={section.id || idx}
               section={section}
+              phaseId={phaseKey}
               completedItems={completedItems}
               toggleComplete={toggleComplete}
               starredItems={starredItems}
