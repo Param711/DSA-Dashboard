@@ -6,5 +6,12 @@ using namespace std;
 
 int main() {
     // Code here
+    unordered_set<int> s;
+    for(int i=0;i<4;i++){
+        int x;
+        cin>>x;
+        s.insert(x);
+    }
+    cout<<4-s.size();
     return 0;
 }
