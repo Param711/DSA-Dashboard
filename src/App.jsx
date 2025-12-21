@@ -1,4 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import CalendarHeatmap from 'react-calendar-heatmap';
+import 'react-calendar-heatmap/dist/styles.css'; // Import default layout styles
+import { Tooltip } from 'react-tooltip'; // Optional: if you want hover tooltips
 import { 
   CheckCircle, 
   Circle, 
@@ -13,7 +16,8 @@ import {
   Terminal,
   Code,
   Star,
-  RefreshCw,
+  Save,       // <--- ADD THIS
+  FolderOpen,
   Link as LinkIcon,
   Moon,
   Sun
@@ -36,6 +40,20 @@ const getSolutionLink = (phaseId, title) => {
     // --- SCENARIO B: EVERYONE ELSE (Deployment Mode) ---
     // Opens the file on your GitHub repository so they can view the code
     return `https://github.com/param711/DSA-Dashboard/blob/main/public/solutions/${phaseId}/${cleanTitle}.cpp`;
+  }
+};
+// Helper to open the global notes.md file
+const getGlobalNotesLink = () => {
+  const isLocal = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+
+  if (isLocal) {
+    // --- SCENARIO A: LOCAL (VS Code) ---
+    // Opens C:/Users/param/dsa-dashboars/dsa-dashboard/public/solutions/notes.md
+    const projectPath = "C:/Users/param/dsa-dashboars/dsa-dashboard";
+    return `vscode://file/${projectPath}/public/solutions/notes.md`;
+  } else {
+    // --- SCENARIO B: DEPLOYED (GitHub) ---
+    return `https://github.com/param711/DSA-Dashboard/blob/main/public/solutions/notes.md`;
   }
 };
 
@@ -457,11 +475,12 @@ const CURRICULUM_DATA = {
         id: "p0_stl",
         title: "STL, Stack & Queue (30 Questions)",
         resources: [
+          { title: "LUV STL", link:"https://www.youtube.com/playlist?list=PLauivoElc3gh3RCiQA82MDI-gJfXQQVnn"},
            { title: "Striver Sheet", link: "https://takeuforward.org/dsa/strivers-a2z-sheet-learn-dsa-a-to-z" },
            { title: "Policy-Based-Data-Structure", link: "https://www.geeksforgeeks.org/cpp/policy-based-data-structures-g/" }
         ],
         questions: [
-          
+  {id:"stl_cntst", title:"STL", link: "https://assessment.hackerearth.com/challenges/new/college/luv_youtube_cp_course_contest_3/"},        
   { id: "stl_1", title: "Gravity Flip", link: "https://codeforces.com/problemset/problem/405/A" },
   { id: "stl_2", title: "Team", link: "https://codeforces.com/problemset/problem/231/A" },
   { id: "stl_3", title: "Dragons", link: "https://codeforces.com/problemset/problem/230/A" },
@@ -1925,6 +1944,21 @@ const CPICurriculumTracker = () => {
     const saved = localStorage.getItem('dsa_tracker_completed');
     return saved ? JSON.parse(saved) : {};
   });
+  // Stores dates of every problem solved: ["2023-12-01", "2023-12-01", ...]
+  const [solveHistory, setSolveHistory] = useState([]);
+
+  // Helper: Prepare data for the heatmap
+  const getHeatmapData = () => {
+    const counts = {};
+    solveHistory.forEach(date => {
+      counts[date] = (counts[date] || 0) + 1;
+    });
+    
+    return Object.keys(counts).map(date => ({
+      date: date,
+      count: counts[date]
+    }));
+  };
 
   const [starred, setStarred] = useState(() => {
     const saved = localStorage.getItem('dsa_tracker_starred');
@@ -1958,11 +1992,24 @@ const CPICurriculumTracker = () => {
 
   // --- Handlers ---
   const toggleComplete = (id) => {
-    if (!id) return;
-    setCompleted(prev => ({
-      ...prev,
-      [id]: !prev[id]
-    }));
+    setCompleted(prev => {
+      const isNowComplete = !prev[id];
+      const newCompleted = { ...prev, [id]: isNowComplete };
+      
+      // --- NEW LOGIC START ---
+      if (isNowComplete) {
+        // If checking the box, add TODAY to history
+        const today = new Date().toISOString().split('T')[0]; // "2025-12-20"
+        setSolveHistory(prevHistory => [...prevHistory, today]);
+      } else {
+        // (Optional) If unchecking, do we remove the "credit"?
+        // LeetCode doesn't remove history if you reset code, so let's keep it simple.
+        // We just won't add a new entry.
+      }
+      // --- NEW LOGIC END ---
+
+      return newCompleted;
+    });
   };
 
   const toggleStar = (id) => {
@@ -2002,6 +2049,67 @@ const CPICurriculumTracker = () => {
 
     return { total: totalQ, solved: solvedQ, starred: starredQ, percent: totalQ === 0 ? 0 : (solvedQ / totalQ) * 100 };
   }, [completed, starred]);
+  // --- STATE FOR FILE CONNECTION ---
+  const [fileHandle, setFileHandle] = useState(null);
+
+  // --- FUNCTION 1: Connect to a local file ---
+  const connectToFile = async () => {
+    try {
+      // 1. Open File Picker
+      const [handle] = await window.showOpenFilePicker({
+        types: [{ description: 'JSON File', accept: { 'application/json': ['.json'] } }],
+      });
+      
+      // 2. Read the file
+      const file = await handle.getFile();
+      const text = await file.text();
+      
+      // 3. Load data if file is not empty
+      if (text.trim()) {
+        const data = JSON.parse(text);
+        if (data.completed) setCompleted(data.completed);
+        if (data.starred) setStarred(data.starred);
+        if (data.solveHistory) setSolveHistory(data.solveHistory); // <--- Add this
+      }
+
+      // 4. Save the handle so we can write back to it later
+      setFileHandle(handle);
+      alert("Connected! You can now save progress directly to this file.");
+      
+    } catch (err) {
+      console.error("Connection failed:", err);
+    }
+  };
+
+  // --- FUNCTION 2: Save directly to the connected file ---
+  const saveToDisk = async () => {
+    if (!fileHandle) {
+      alert("Please connect to a file first!");
+      return;
+    }
+
+    try {
+      // 1. Create a writable stream
+      const writable = await fileHandle.createWritable();
+      
+      // 2. Prepare the data
+      const data = {
+        completed,
+        starred,
+        solveHistory,
+        lastUpdated: new Date().toISOString()
+      };
+
+      // 3. Write and Close
+      await writable.write(JSON.stringify(data, null, 2));
+      await writable.close();
+      
+      alert("Progress saved successfully!");
+    } catch (err) {
+      console.error("Save failed:", err);
+      alert("Failed to save. If you moved the file, please connect again.");
+    }
+  };
 
   return (
     <div className={darkMode ? 'dark' : ''}>
@@ -2028,12 +2136,56 @@ const CPICurriculumTracker = () => {
                    {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
                  </button>
 
-                 <button 
-                   onClick={resetProgress}
-                   className="flex items-center gap-2 text-sm text-slate-400 hover:text-red-500 dark:hover:text-red-400 transition-colors px-3 py-1 rounded-full border border-transparent hover:border-red-200 dark:hover:border-red-900 hover:bg-red-50 dark:hover:bg-red-900/20"
-                 >
-                   <RefreshCw className="w-3 h-3" /> Reset Progress
-                 </button>
+                 <div className="flex items-center gap-3">
+  {/* 1. CONNECT BUTTON */}
+  <button 
+    onClick={connectToFile}
+    className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium transition-colors border ${
+      fileHandle 
+        ? "bg-green-50 text-green-700 border-green-200 dark:bg-green-900/30 dark:text-green-400 dark:border-green-800" 
+        : "bg-white text-slate-600 border-slate-200 hover:bg-slate-50 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700"
+    }`}
+    title="Link a JSON file to save progress"
+  >
+    <FolderOpen className="w-4 h-4" />
+    <span className="hidden sm:inline">{fileHandle ? "Linked" : "Open File"}</span>
+  </button>
+
+  {/* 2. SAVE BUTTON (Only works if linked) */}
+  <button 
+    onClick={saveToDisk}
+    disabled={!fileHandle}
+    className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-bold transition-all shadow-sm ${
+      fileHandle 
+        ? "bg-blue-600 text-white hover:bg-blue-700 hover:shadow border-transparent cursor-pointer" 
+        : "bg-slate-100 text-slate-400 border-slate-200 cursor-not-allowed dark:bg-slate-800 dark:text-slate-600 dark:border-slate-700"
+    }`}
+    title="Overwrite file with current progress"
+  >
+    <Save className="w-4 h-4" />
+    <span>Save</span>
+  </button>
+  <a 
+    href={getGlobalNotesLink()}
+    className="flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium transition-colors border bg-purple-50 text-purple-700 border-purple-200 hover:bg-purple-100 dark:bg-purple-900/30 dark:text-purple-300 dark:border-purple-800 shadow-sm"
+    // No target="_blank" usually needed for VS Code protocols, but harmless to keep
+  >
+    <BookOpen className="w-4 h-4" />
+    <span>My Notes</span>
+  </a>
+
+  <div className="w-px h-6 bg-slate-300 dark:bg-slate-700 mx-1"></div>
+
+  {/* 3. THEME BUTTON (Kept as is) */}
+  <button 
+    onClick={toggleTheme}
+    className="flex items-center justify-center p-2 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors shadow-sm"
+  >
+    {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+  </button>
+  
+  {/* RESET BUTTON IS GONE! */}
+</div>
                </div>
              </div>
 
@@ -2082,6 +2234,37 @@ const CPICurriculumTracker = () => {
                 toggleStar={toggleStar}
               />
             ))}
+            {/* --- HEATMAP SECTION STARTS HERE --- */}
+        <div className="mt-12 mb-8 p-6 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+          <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-4 flex items-center gap-2">
+            <div className="w-3 h-3 bg-green-500 rounded-sm"></div>
+            Consistency Graph
+          </h3>
+          
+          <CalendarHeatmap
+            startDate={new Date(new Date().setFullYear(new Date().getFullYear() - 1))}
+            endDate={new Date()}
+            values={getHeatmapData()}
+            classForValue={(value) => {
+              if (!value) return 'color-empty';
+              return `color-scale-${Math.min(value.count, 4)}`;
+            }}
+            showWeekdayLabels={true}
+          />
+          
+          <div className="flex justify-end items-center gap-2 mt-2 text-xs text-slate-400">
+            <span>Less</span>
+            <div className="flex gap-1">
+              <div className="w-3 h-3 bg-slate-100 dark:bg-slate-800 rounded-sm"></div>
+              <div className="w-3 h-3 bg-green-200 dark:bg-green-900 rounded-sm"></div>
+              <div className="w-3 h-3 bg-green-400 dark:bg-green-700 rounded-sm"></div>
+              <div className="w-3 h-3 bg-green-600 dark:bg-green-500 rounded-sm"></div>
+              <div className="w-3 h-3 bg-green-800 dark:bg-green-300 rounded-sm"></div>
+            </div>
+            <span>More</span>
+          </div>
+        </div>
+        {/* --- HEATMAP SECTION ENDS HERE --- */}
           </main>
 
           <footer className="mt-12 text-center text-slate-400 dark:text-slate-600 text-sm pb-8">

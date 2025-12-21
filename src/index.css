@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* Heatmap Container */
+.react-calendar-heatmap text {
+  font-size: 10px;
+  fill: #94a3b8; /* Slate-400 for dates */
+}
+
+.react-calendar-heatmap .react-calendar-heatmap-weekday-labels {
+  display: none; /* Hide Mon/Wed/Fri labels to look cleaner */
+}
+
+/* THE LEETCODE GREEN COLORS */
+.react-calendar-heatmap .color-empty { fill: #ebedf0; }
+.react-calendar-heatmap .color-scale-1 { fill: #9be9a8; } /* Light Green */
+.react-calendar-heatmap .color-scale-2 { fill: #40c463; }
+.react-calendar-heatmap .color-scale-3 { fill: #30a14e; }
+.react-calendar-heatmap .color-scale-4 { fill: #216e39; } /* Dark Green */
+
+/* Dark Mode Support */
+.dark .react-calendar-heatmap .color-empty { fill: #161b22; } /* Dark gray for empty */
+.dark .react-calendar-heatmap .color-scale-1 { fill: #0e4429; }
+.dark .react-calendar-heatmap .color-scale-2 { fill: #006d32; }
+.dark .react-calendar-heatmap .color-scale-3 { fill: #26a641; }
+.dark .react-calendar-heatmap .color-scale-4 { fill: #39d353; } /* Neon Green */
